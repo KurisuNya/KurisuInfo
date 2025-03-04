@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from abc import ABCMeta, abstractmethod
 import sys
 import warnings
 from typing import (
@@ -49,6 +50,12 @@ REQUIRES_INPUT = {
 }
 
 _cached_forward_pass: dict[str, list[LayerInfo]] = {}
+
+
+class CustomizedModuleName(metaclass=ABCMeta):
+    @abstractmethod
+    def get_module_name(self) -> str:
+        pass
 
 
 def summary(
@@ -268,7 +275,10 @@ def forward_pass(
 ) -> list[LayerInfo]:
     """Perform a forward pass on the model using forward hooks."""
     global _cached_forward_pass
-    model_name = model.__class__.__name__
+    if isinstance(model, CustomizedModuleName):
+        model_name = model.get_module_name()
+    else:
+        model_name = model.__class__.__name__
     if cache_forward_pass and model_name in _cached_forward_pass:
         return _cached_forward_pass[model_name]
 
