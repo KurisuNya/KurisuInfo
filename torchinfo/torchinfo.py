@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from abc import ABCMeta, abstractmethod
 import sys
 import warnings
 from typing import (
@@ -24,7 +23,7 @@ from torch.utils.hooks import RemovableHandle
 
 from .enums import ColumnSettings, Mode, RowSettings, Verbosity
 from .formatting import FormattingOptions
-from .layer_info import LayerInfo, get_children_layers, prod
+from .layer_info import LayerInfo, get_children_layers, prod, CustomizedModuleName
 from .model_statistics import ModelStatistics
 
 # Some modules do the computation themselves using parameters
@@ -50,12 +49,6 @@ REQUIRES_INPUT = {
 }
 
 _cached_forward_pass: dict[str, list[LayerInfo]] = {}
-
-
-class CustomizedModuleName(metaclass=ABCMeta):
-    @abstractmethod
-    def get_module_name(self) -> str:
-        pass
 
 
 def summary(

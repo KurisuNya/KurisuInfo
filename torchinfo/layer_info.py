@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from abc import ABCMeta, abstractmethod
 from typing import Any, Dict, Iterable, Sequence, Union
 
 import numpy as np
@@ -22,6 +23,10 @@ DETECTED_INPUT_OUTPUT_TYPES = Union[
     Sequence[Any], Dict[Any, torch.Tensor], torch.Tensor
 ]
 
+class CustomizedModuleName(metaclass=ABCMeta):
+    @abstractmethod
+    def get_module_name(self) -> str:
+        pass
 
 class LayerInfo:
     """Class that holds information about a layer module."""
@@ -36,11 +41,14 @@ class LayerInfo:
         # Identifying information
         self.layer_id = id(module)
         self.module = module
-        self.class_name = (
-            str(module.original_name)
-            if isinstance(module, ScriptModule)
-            else module.__class__.__name__
-        )
+        if isinstance(module, CustomizedModuleName):
+            self.class_name = module.get_module_name()
+        else:
+            self.class_name = (
+                str(module.original_name)
+                if isinstance(module, ScriptModule)
+                else module.__class__.__name__
+            )
         # {layer name: {col_name: value_for_row}}
         self.inner_layers: dict[str, dict[ColumnSettings, Any]] = {}
         self.depth = depth
