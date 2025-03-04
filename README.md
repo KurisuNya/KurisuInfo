@@ -1,3 +1,4 @@
+A fork of [TylerYep/torchinfo](https://github.com/TylerYep/torchinfo) shared under the MIT License.
 # torchinfo
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/release/python-380/)
