@@ -1,6 +1,7 @@
 from .enums import ColumnSettings, Mode, RowSettings, Units, Verbosity
 from .model_statistics import ModelStatistics
-from .torchinfo import summary, CustomizedModuleName
+from .layer_info import CustomizedModuleName
+from .torchinfo import summary
 
 __all__ = (
     "ColumnSettings",
