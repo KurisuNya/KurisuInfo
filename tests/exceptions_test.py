@@ -2,7 +2,7 @@ import pytest
 import torch
 
 from tests.fixtures.models import CustomParameter, EdgeCaseModel, IdentityModel
-from torchinfo import summary
+from kurisuinfo import summary
 
 
 def test_invalid_user_params() -> None:

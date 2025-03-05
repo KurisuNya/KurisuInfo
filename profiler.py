@@ -5,7 +5,7 @@ import random
 import torchvision  # type: ignore[import-untyped]  # noqa: F401
 from tqdm import trange  # noqa: F401
 
-from torchinfo import summary  # noqa: F401
+from kurisuinfo import summary  # noqa: F401
 
 
 def profile() -> None:

@@ -2,8 +2,8 @@ import pytest
 import torch
 
 from tests.fixtures.models import LinearModel, LSTMNet, SingleInputNet
-from torchinfo import summary
-from torchinfo.model_statistics import ModelStatistics
+from kurisuinfo import summary
+from kurisuinfo.model_statistics import ModelStatistics
 
 
 @pytest.mark.skipif(

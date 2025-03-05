@@ -1,4 +1,7 @@
-A fork of [TylerYep/torchinfo](https://github.com/TylerYep/torchinfo) shared under the MIT License.
+A fork of [TylerYep/torchinfo](https://github.com/TylerYep/torchinfo) shared under the MIT License. Added custom mudule name feature.
+
+Use `kurisuinfo` instead of `torchinfo` to avoid conflicts with the original package.
+
 # torchinfo
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/release/python-380/)
@@ -33,7 +36,7 @@ conda install -c conda-forge torchinfo
 # How To Use
 
 ```python
-from torchinfo import summary
+from kurisuinfo import summary
 
 model = ConvNet()
 batch_size = 16
@@ -234,7 +237,7 @@ Return:
 ## Get Model Summary as String
 
 ```python
-from torchinfo import summary
+from kurisuinfo import summary
 
 model_stats = summary(your_model, (1, 3, 28, 28), verbose=0)
 summary_str = str(model_stats)

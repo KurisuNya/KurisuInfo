@@ -2,7 +2,7 @@ import pytest
 import torch
 
 from tests.fixtures.models import MultiDeviceModel, SingleInputNet
-from torchinfo import summary
+from kurisuinfo import summary
 
 
 @pytest.mark.skipif(not torch.cuda.is_available(), reason="GPU must be enabled.")

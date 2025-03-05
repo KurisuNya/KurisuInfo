@@ -5,10 +5,10 @@ from typing import Iterator
 
 import pytest
 
-from torchinfo import ModelStatistics
-from torchinfo.enums import ColumnSettings
-from torchinfo.formatting import HEADER_TITLES
-from torchinfo.torchinfo import clear_cached_forward_pass
+from kurisuinfo import ModelStatistics
+from kurisuinfo.enums import ColumnSettings
+from kurisuinfo.formatting import HEADER_TITLES
+from kurisuinfo.torchinfo import clear_cached_forward_pass
 
 
 def pytest_addoption(parser: pytest.Parser) -> None:
