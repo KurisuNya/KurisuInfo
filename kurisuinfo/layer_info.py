@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from abc import ABCMeta, abstractmethod
-from typing import Any, Dict, Iterable, Sequence, Union
+from abc import abstractmethod
+from typing import Any, Dict, Iterable, Protocol, Sequence, Union, runtime_checkable
 
 import numpy as np
 import torch
@@ -23,7 +23,8 @@ DETECTED_INPUT_OUTPUT_TYPES = Union[
     Sequence[Any], Dict[Any, torch.Tensor], torch.Tensor
 ]
 
-class CustomizedModuleName(metaclass=ABCMeta):
+@runtime_checkable
+class CustomizedModuleName(Protocol):
     @abstractmethod
     def get_module_name(self) -> str:
         pass
