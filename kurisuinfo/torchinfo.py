@@ -269,7 +269,7 @@ def forward_pass(
     """Perform a forward pass on the model using forward hooks."""
     global _cached_forward_pass
     if isinstance(model, CustomizedModuleName):
-        model_name = model.get_module_name()
+        model_name = str(model.get_module_name())
     else:
         model_name = model.__class__.__name__
     if cache_forward_pass and model_name in _cached_forward_pass:

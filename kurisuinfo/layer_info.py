@@ -43,7 +43,7 @@ class LayerInfo:
         self.layer_id = id(module)
         self.module = module
         if isinstance(module, CustomizedModuleName):
-            self.class_name = module.get_module_name()
+            self.class_name = str(module.get_module_name())
         else:
             self.class_name = (
                 str(module.original_name)
